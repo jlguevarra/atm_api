@@ -57,7 +57,7 @@ try {
     $newReceiverBalance = $receiverBalance + $amount;
 
     // Update receiver transaction
-    $stmt = $conn->prepare("INSERT INTO transactions (card_number, date, type, amount, balance, account_type) VALUES (?, NOW(), 'Deposit', ?, ?, ?)");
+    $stmt = $conn->prepare("INSERT INTO transactions (card_number, date, type, amount, balance, account_type) VALUES (?, NOW(), 'Transfer', ?, ?, ?)");
     $stmt->bind_param("sdds", $receiver, $amount, $newReceiverBalance, $accountType);
     $stmt->execute();
 
